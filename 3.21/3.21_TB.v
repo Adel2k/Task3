@@ -18,7 +18,7 @@ module TB();
 
         for (integer i = 0; i < 8; i = i + 1) begin
             {x_TB, y_TB, z_TB} = i;
-            #50;
+            #10;
             $display("x=%b y=%b z=%b | c=%b s=%b", x_TB, y_TB, z_TB, c_TB, s_TB);
         end
         #10;

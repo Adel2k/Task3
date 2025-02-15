@@ -5,10 +5,10 @@ module main(
     input wire x, y, z
 );
     wire cin, cout, s1;
-    assign cout = x * y;
+    assign cout = x & y;
     assign s1 = x ^ y;
     assign s = s1 ^ z;
     assign cin = s1 * z;
-    assign c = cin + cout;
+    assign c = cin | cout;
     
 endmodule
