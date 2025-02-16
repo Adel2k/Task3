@@ -1,27 +1,30 @@
 `timescale 1ns/1ps
 
 module TB();
-    reg x_TB, y_TB, z_TB;
-    wire s_TB, c_TB;
+    reg x, y, z;
+    wire s, c;
 
     main test(
-        .x(x_TB),
-        .z(z_TB),
-        .y(y_TB),
-        .c(c_TB),
-        .s(s_TB)
+        .x(x),
+        .z(z),
+        .y(y),
+        .c(c),
+        .s(s)
     );
 
-    initial begin
-        $dumpfile("waveform.vcd");
-        $dumpvars(0, TB);
+initial begin
+    $dumpfile("waveform.vcd");
+    $dumpvars(0, TB);
+    $display("\033[1;34mThe number of 1's\033[0m");
 
-        for (integer i = 0; i < 8; i = i + 1) begin
-            {x_TB, y_TB, z_TB} = i;
-            #10;
-            $display("x=%b y=%b z=%b | c=%b s=%b", x_TB, y_TB, z_TB, c_TB, s_TB);
-        end
+    for (integer i = 0; i < 8; i++) begin
+        {x, y, z} = i;
         #10;
-        $finish;
+        $display("\033[1;33mx=%b y=%b z=%b\033[0m\n\tbinary = %b%b\n\tdecimal = %d\n", 
+                 x, y, z, c, s, {c,s});
     end
+    #10;
+    $finish;
+end
+
 endmodule

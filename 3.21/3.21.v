@@ -8,7 +8,7 @@ module main(
     assign cout = x & y;
     assign s1 = x ^ y;
     assign s = s1 ^ z;
-    assign cin = s1 * z;
+    assign cin = s1 & z;
     assign c = cin | cout;
     
 endmodule

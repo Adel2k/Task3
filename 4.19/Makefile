@@ -1,4 +1,4 @@
-NAME = Decoder
+NAME = decoder
 
 SOURCE = $(wildcard *.v)
 
@@ -7,13 +7,13 @@ WAVEFORM = waveform.vcd
 all : run
 
 run : compile
-	vvp $(NAME)
+	@vvp $(NAME)
 
 compile : Makefile
-	iverilog -o $(NAME) $(SOURCE)
+	@iverilog -o $(NAME) $(SOURCE)
 
 view :
-	gtkwave $(WAVEFORM)
+	@gtkwave $(WAVEFORM)
 
 clean :
 	rm -f $(WAVEFORM) $(NAME)
